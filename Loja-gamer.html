@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LevelUp Games — Sua loja gamer</title>
+    <meta name="description" content="LevelUp Games — PCs, periféricos, acessórios e muito mais para gamers.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.96);
+            border-bottom: 1px solid #242424;
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #00ff88;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 25px 70px;
+            background:
+                radial-gradient(circle at 50% 35%, #07351f 0%, #101010 35%, #050505 75%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 82px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+            display: inline-block;
+        }
+
+        .btn-green {
+            background: #00ff88;
+            color: #06130d;
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,255,136,.2);
+        }
+
+        .btn-outline {
+            color: white;
+            border: 1px solid #444;
+        }
+
+        .btn-outline:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .categories {
+            background: #0d0d0d;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            background: #151515;
+            border: 1px solid #282828;
+            border-radius: 14px;
+            padding: 28px 15px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            border-color: #00ff88;
+        }
+
+        .category .icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .category h3 {
+            font-size: 17px;
+        }
+
+        .products {
+            background: #080808;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: #131313;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            border-color: #00ff88;
+        }
+
+        .product-image {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #1d1d1d, #0c0c0c);
+            font-size: 75px;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #888;
+            font-size: 14px;
+            min-height: 45px;
+        }
+
+        .price {
+            color: #00ff88;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .buy {
+            width: 100%;
+            text-align: center;
+            background: #00ff88;
+            color: #06130d;
+            padding: 11px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            transition: .3s;
+        }
+
+        .buy:hover {
+            background: #28ff9c;
+        }
+
+        .benefits {
+            background: #101010;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            text-align: center;
+            padding: 30px 20px;
+            background: #161616;
+            border: 1px solid #282828;
+            border-radius: 14px;
+        }
+
+        .benefit-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .benefit p {
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .about h2 span {
+            color: #00ff88;
+        }
+
+        .about p {
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .about-box {
+            min-height: 320px;
+            border-radius: 18px;
+            border: 1px solid #292929;
+            background:
+                radial-gradient(circle, #06351f 0%, #121212 65%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #07140e;
+            border-top: 1px solid #153c2a;
+            border-bottom: 1px solid #153c2a;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #999;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        footer {
+            background: #050505;
+            border-top: 1px solid #222;
+            padding: 30px 20px;
+            text-align: center;
+            color: #777;
+        }
+
+        footer strong {
+            color: #00ff88;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 27px;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,.4);
+        }
+
+        @media (max-width: 800px) {
+            nav ul {
+                display: none;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-grid,
+            .benefit-grid,
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">LEVEL<span>UP</span> GAMES</div>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <div class="tag">🎮 LOJA GAMER</div>
+
+            <h1>
+                Seu jogo.<br>
+                Seu <span>setup.</span>
+            </h1>
+
+            <p>
+                Encontre periféricos, acessórios e equipamentos
+                para levar sua experiência gamer para outro nível.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-green" href="#produtos">
+                    Ver produtos
+                </a>
+
+                <a class="btn btn-outline" href="#categorias">
+                    Explorar categorias
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="categories" id="categorias">
+        <div class="container">
+
+            <div class="section-title">
+                <small>Explore</small>
+                <h2>Categorias</h2>
+            </div>
+
+            <div class="category-grid">
+
+                <div class="category">
+                    <div class="icon">🖱️</div>
+                    <h3>Mouse</h3>
+                </div>
+
+                <div class="category">
+                    <div class="icon">⌨️</div>
+                    <h3>Teclados</h3>
+                </div>
+
+                <div class="category">
+                    <div class="icon">🎧</div>
+                    <h3>Headsets</h3>
+                </div>
+
+                <div class="category">
+                    <div class="icon">🖥️</div>
+                    <h3>Monitores</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="products" id="produtos">
+        <div class="container">
+
+            <div class="section-title">
+                <small>Mais vendidos</small>
+                <h2>Produtos em destaque</h2>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product">
+                    <div class="product-image">🖱️</div>
+
+                    <div class="product-info">
+                        <h3>Mouse Phantom X</h3>
+                        <p>
+                            Mouse gamer com sensor de alta precisão.
+                        </p>
+
+                        <div class="price">R$ 149,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Mouse%20Phantom%20X.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">⌨️</div>
+
+                    <div class="product-info">
+                        <h3>Keyboard RGB Pro</h3>
+                        <p>
+                            Teclado mecânico compacto com iluminação RGB.
+                        </p>
+
+                        <div class="price">R$ 229,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Keyboard%20RGB%20Pro.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🎧</div>
+
+                    <div class="product-info">
+                        <h3>Headset Storm 7.1</h3>
+                        <p>
+                            Som surround e microfone para suas partidas.
+                        </p>
+
+                        <div class="price">R$ 189,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Headset%20Storm%207.1.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🖥️</div>
+
+                    <div class="product-info">
+                        <h3>Monitor Gamer 144Hz</h3>
+                        <p>
+                            Tela de alta taxa de atualização para jogos.
+                        </p>
+
+                        <div class="price">R$ 899,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Monitor%20Gamer%20144Hz.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🎮</div>
+
+                    <div class="product-info">
+                        <h3>Controle Pro</h3>
+                        <p>
+                            Controle confortável para PC e consoles.
+                        </p>
+
+                        <div class="price">R$ 259,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Controle%20Pro.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-image">🖱️</div>
+
+                    <div class="product-info">
+                        <h3>Mousepad Speed XL</h3>
+                        <p>
+                            Superfície grande para movimentos rápidos.
+                        </p>
+
+                        <div class="price">R$ 89,90</div>
+
+                        <a class="buy"
+                           href="https://wa.me/?text=Olá!%20Tenho%20interesse%20no%20Mousepad%20Speed%20XL.">
+                            Tenho interesse
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+
+            <div class="section-title">
+                <small>Por que comprar aqui?</small>
+                <h2>Feito para gamers</h2>
+            </div>
+
+            <div class="benefit-grid">
+
+                <div class="benefit">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Entrega rápida</h3>
+                    <p>
+                        Enviamos seus produtos com agilidade.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Compra segura</h3>
+                    <p>
+                        Atendimento para ajudar você antes da compra.
+                    </p>
+                </div>
+
+                <div class="benefit">
+                    <div class="benefit-icon">🎮</div>
+                    <h3>Produtos gamer</h3>
+                    <p>
+                        Equipamentos pensados para seu setup.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <div class="about">
+
+                <div>
+                    <h2>
+                        Monte o setup dos seus
+                        <span>sonhos.</span>
+                    </h2>
+
+                    <p>
+                        A LevelUp Games nasceu para facilitar a vida
+                        de quem ama jogos e quer montar um setup incrível.
+                    </p>
+
+                    <p>
+                        Escolha seus equipamentos, tire suas dúvidas
+                        e encontre tudo em um só lugar.
+                    </p>
+
+                    <a class="btn btn-green" href="#contato">
+                        Falar com a loja
+                    </a>
+                </div>
+
+                <div class="about-box">
+                    🎮
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="container">
+
+            <h2>Quer saber mais?</h2>
+
+            <p>
+                Entre em contato para consultar produtos,
+                disponibilidade e condições.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-green"
+                   href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.">
+                    Falar no WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<a class="whatsapp"
+   href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos."
+   target="_blank"
+   aria-label="WhatsApp">
+    💬
+</a>
+
+<footer>
+    © 2026 <strong>LevelUp Games</strong> — Site demonstrativo criado pela Nexora Sites.
+</footer>
+
+</body>
+</html>

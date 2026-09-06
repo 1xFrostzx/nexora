@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Black Crown Barbearia</title>
+    <meta name="description" content="Black Crown Barbearia - Corte, barba e estilo em um só lugar.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid #242424;
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 25px 80px;
+            background:
+                radial-gradient(circle at center, #25200d 0%, #0b0b0b 45%, #050505 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            color: #bdbdbd;
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #111;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            background: #e5c34a;
+        }
+
+        .btn-outline {
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .services {
+            background: #101010;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: #171717;
+            border: 1px solid #292929;
+            padding: 30px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #d4af37;
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card p {
+            color: #999;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: linear-gradient(145deg, #1b1b1b, #0e0e0e);
+            border: 1px solid #292929;
+            border-radius: 18px;
+            padding: 45px;
+            min-height: 330px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .crown {
+            font-size: 90px;
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .about-text h2 span {
+            color: #d4af37;
+        }
+
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            color: #ddd;
+        }
+
+        .feature span {
+            color: #d4af37;
+            margin-right: 8px;
+        }
+
+        .booking {
+            text-align: center;
+            background: #151208;
+            border-top: 1px solid #302817;
+            border-bottom: 1px solid #302817;
+        }
+
+        .booking h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .booking p {
+            color: #aaa;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            text-align: center;
+            background: #151515;
+            border: 1px solid #292929;
+            padding: 30px 20px;
+            border-radius: 14px;
+        }
+
+        .contact-card .icon {
+            font-size: 30px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #999;
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background: #050505;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 27px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            z-index: 999;
+        }
+
+        @media (max-width: 800px) {
+            nav ul {
+                display: none;
+            }
+
+            .cards,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-text h2 {
+                font-size: 32px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">♛ BLACK CROWN</div>
+
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <div class="tag">BARBEARIA PREMIUM</div>
+
+            <h1>
+                Seu estilo.<br>
+                Sua <span>coroa.</span>
+            </h1>
+
+            <p>
+                Corte, barba e acabamento impecáveis para quem não abre mão de estilo.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-gold"
+                   href="https://wa.me/?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Black%20Crown.">
+                    Agendar horário
+                </a>
+
+                <a class="btn btn-outline" href="#servicos">
+                    Ver serviços
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+
+            <div class="section-title">
+                <small>Nossos serviços</small>
+                <h2>Escolha seu estilo</h2>
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="icon">✂️</div>
+                    <h3>Corte Masculino</h3>
+                    <p>
+                        Corte personalizado com acabamento profissional.
+                    </p>
+                    <div class="price">R$ 35</div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🧔</div>
+                    <h3>Barba</h3>
+                    <p>
+                        Modelagem e acabamento para deixar sua barba alinhada.
+                    </p>
+                    <div class="price">R$ 30</div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔥</div>
+                    <h3>Corte + Barba</h3>
+                    <p>
+                        O combo completo para sair daqui renovado.
+                    </p>
+                    <div class="price">R$ 60</div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">💈</div>
+                    <h3>Degradê</h3>
+                    <p>
+                        Degradê feito nos detalhes e do jeito que você escolher.
+                    </p>
+                    <div class="price">R$ 40</div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">👑</div>
+                    <h3>Platinado</h3>
+                    <p>
+                        Transformação completa para quem quer mudar o visual.
+                    </p>
+                    <div class="price">R$ 120</div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">✨</div>
+                    <h3>Acabamento</h3>
+                    <p>
+                        Pezinho, contorno e detalhes para manter o corte perfeito.
+                    </p>
+                    <div class="price">R$ 20</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+
+            <div class="about">
+
+                <div class="about-box">
+                    <div class="crown">♛</div>
+                </div>
+
+                <div class="about-text">
+                    <h2>
+                        Mais que uma barbearia.<br>
+                        <span>Uma experiência.</span>
+                    </h2>
+
+                    <p>
+                        Na Black Crown, cada detalhe importa. Nosso objetivo
+                        é fazer você sair da cadeira se sentindo ainda melhor.
+                    </p>
+
+                    <p>
+                        Ambiente moderno, profissionais especializados e
+                        atendimento pensado para você.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <span>✓</span> Profissionais experientes
+                        </div>
+
+                        <div class="feature">
+                            <span>✓</span> Ambiente confortável
+                        </div>
+
+                        <div class="feature">
+                            <span>✓</span> Produtos profissionais
+                        </div>
+
+                        <div class="feature">
+                            <span>✓</span> Atendimento personalizado
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="booking">
+        <div class="container">
+
+            <h2>Pronto para mudar o visual?</h2>
+
+            <p>
+                Agende seu horário pelo WhatsApp e venha conhecer
+                a experiência Black Crown.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-gold"
+                   href="https://wa.me/?text=Olá!%20Gostaria%20de%20agendar%20um%20horário.">
+                    Quero agendar
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+
+            <div class="section-title">
+                <small>Fale conosco</small>
+                <h2>Onde estamos</h2>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <div class="icon">📍</div>
+                    <h3>Endereço</h3>
+                    <p>Rua Principal, 250<br>São Paulo - SP</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon">🕐</div>
+                    <h3>Horários</h3>
+                    <p>
+                        Seg - Sex: 09h às 20h<br>
+                        Sábado: 09h às 18h
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Agende seu horário online</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<a class="whatsapp"
+   href="https://wa.me/?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20na%20Black%20Crown."
+   target="_blank"
+   aria-label="WhatsApp">
+    💬
+</a>
+
+<footer>
+    © 2026 <strong>Black Crown Barbearia</strong> — Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

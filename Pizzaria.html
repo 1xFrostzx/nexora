@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<meta name="description" content="Bella Massa Pizzaria — pizzas artesanais, combos e bebidas. Peça pelo WhatsApp.">
+
+<title>Bella Massa 🍕 | Pizzaria</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0b0806;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 18px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(11, 8, 6, .94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #29201a;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: 900;
+    }
+
+    .logo span {
+        color: #ff7a00;
+    }
+
+    nav {
+        display: flex;
+        gap: 25px;
+    }
+
+    nav a {
+        color: #ccc;
+        transition: .3s;
+    }
+
+    nav a:hover {
+        color: #ff7a00;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 70px;
+
+        background:
+            radial-gradient(circle at center, #51220c 0%, #1d0e07 25%, #0b0806 65%);
+    }
+
+    .hero .pizza {
+        font-size: 75px;
+        margin-bottom: 15px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 8vw, 90px);
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+        color: #ff7a00;
+    }
+
+    .hero p {
+        color: #bbb;
+        max-width: 650px;
+        margin: auto;
+        font-size: 19px;
+    }
+
+    .buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: .3s;
+    }
+
+    .btn-orange {
+        background: #ff7a00;
+        color: #fff;
+    }
+
+    .btn-orange:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(255,122,0,.3);
+    }
+
+    .btn-outline {
+        border: 1px solid #555;
+        color: #ddd;
+    }
+
+    .btn-outline:hover {
+        border-color: #ff7a00;
+        color: #ff7a00;
+    }
+
+    section {
+        padding: 100px 7%;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .title h2 {
+        font-size: 42px;
+    }
+
+    .title span {
+        color: #ff7a00;
+    }
+
+    .title p {
+        color: #999;
+        margin-top: 8px;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .pizza-card {
+        background: #15100c;
+        border: 1px solid #2c2119;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: .3s;
+    }
+
+    .pizza-card:hover {
+        transform: translateY(-7px);
+        border-color: #ff7a00;
+    }
+
+    .pizza-image {
+        height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        background:
+            radial-gradient(circle, #54240d, #211008);
+    }
+
+    .pizza-info {
+        padding: 25px;
+    }
+
+    .pizza-info h3 {
+        font-size: 23px;
+        margin-bottom: 8px;
+    }
+
+    .pizza-info p {
+        color: #999;
+        min-height: 50px;
+    }
+
+    .pizza-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 18px;
+    }
+
+    .price {
+        color: #ff7a00;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .order {
+        background: #ff7a00;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
+    .combos {
+        background: #100b08;
+    }
+
+    .combo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .combo {
+        padding: 30px;
+        background: #18110c;
+        border: 1px solid #2c2119;
+        border-radius: 18px;
+        text-align: center;
+    }
+
+    .combo .emoji {
+        font-size: 50px;
+    }
+
+    .combo h3 {
+        margin: 15px 0 10px;
+    }
+
+    .combo p {
+        color: #999;
+    }
+
+    .combo .price {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        text-align: center;
+    }
+
+    .info {
+        padding: 30px;
+        background: #15100c;
+        border: 1px solid #2c2119;
+        border-radius: 18px;
+    }
+
+    .info-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .info h3 {
+        margin-bottom: 8px;
+    }
+
+    .info p {
+        color: #999;
+    }
+
+    .about {
+        text-align: center;
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .about p {
+        color: #aaa;
+        font-size: 18px;
+    }
+
+    .contact {
+        text-align: center;
+        background:
+            radial-gradient(circle at center, #54240d 0%, #0b0806 60%);
+    }
+
+    .contact h2 {
+        font-size: clamp(38px, 6vw, 60px);
+        margin-bottom: 15px;
+    }
+
+    .contact p {
+        color: #aaa;
+        margin-bottom: 30px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        border-top: 1px solid #29201a;
+        color: #777;
+    }
+
+    footer span {
+        color: #ff7a00;
+    }
+
+    .whatsapp {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #25d366;
+        border-radius: 50%;
+        font-size: 28px;
+        z-index: 1000;
+        box-shadow: 0 8px 25px rgba(0,0,0,.4);
+        transition: .3s;
+    }
+
+    .whatsapp:hover {
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 850px) {
+
+        nav {
+            display: none;
+        }
+
+        .menu,
+        .combo-grid,
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        section {
+            padding: 75px 5%;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+
+    <div class="logo">
+        Bella <span>Massa</span> 🍕
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#combos">Combos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <div>
+
+        <div class="pizza">🍕</div>
+
+        <h1>
+            A pizza que
+            <span>você merece.</span>
+        </h1>
+
+        <p>
+            Pizzas artesanais, ingredientes selecionados
+            e aquele sabor que faz você querer repetir.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn btn-orange"
+               href="#cardapio">
+                Ver cardápio 🍕
+            </a>
+
+            <a class="btn btn-outline"
+               href="https://wa.me/?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido."
+               target="_blank">
+                Pedir pelo WhatsApp 📱
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="cardapio">
+
+    <div class="title">
+
+        <h2>
+            Nosso <span>cardápio</span>
+        </h2>
+
+        <p>
+            Escolha sua favorita e faça seu pedido.
+        </p>
+
+    </div>
+
+    <div class="menu">
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Calabresa Especial</h3>
+
+                <p>
+                    Calabresa, cebola, muçarela,
+                    molho de tomate e orégano.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 39,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20de%20Calabresa%20Especial."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Frango com Catupiry</h3>
+
+                <p>
+                    Frango desfiado, catupiry,
+                    muçarela e orégano.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 44,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20de%20Frango%20com%20Catupiry."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Quatro Queijos</h3>
+
+                <p>
+                    Muçarela, provolone, parmesão
+                    e gorgonzola.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 47,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20Quatro%20Queijos."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Portuguesa</h3>
+
+                <p>
+                    Presunto, ovo, cebola, ervilha,
+                    muçarela e azeitona.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 42,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20Portuguesa."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Marguerita</h3>
+
+                <p>
+                    Muçarela, tomate, manjericão
+                    e molho especial.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 39,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20Marguerita."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="pizza-card">
+
+            <div class="pizza-image">
+                🍕
+            </div>
+
+            <div class="pizza-info">
+
+                <h3>Chocolate</h3>
+
+                <p>
+                    Chocolate ao leite e granulado.
+                </p>
+
+                <div class="pizza-bottom">
+
+                    <div class="price">
+                        R$ 34,90
+                    </div>
+
+                    <a class="order"
+                       href="https://wa.me/?text=Olá!%20Quero%20pedir%20uma%20pizza%20de%20Chocolate."
+                       target="_blank">
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="combos" id="combos">
+
+    <div class="title">
+
+        <h2>
+            Combos <span>especiais</span>
+        </h2>
+
+        <p>
+            Mais sabor e economia para sua noite.
+        </p>
+
+    </div>
+
+    <div class="combo-grid">
+
+        <div class="combo">
+
+            <div class="emoji">🍕🥤</div>
+
+            <h3>Combo Individual</h3>
+
+            <p>
+                1 pizza pequena + 1 refrigerante.
+            </p>
+
+            <span class="price">
+                R$ 44,90
+            </span>
+
+            <a class="btn btn-orange"
+               href="https://wa.me/?text=Olá!%20Quero%20o%20Combo%20Individual."
+               target="_blank">
+                Pedir combo
+            </a>
+
+        </div>
+
+
+        <div class="combo">
+
+            <div class="emoji">🍕🍕🥤</div>
+
+            <h3>Combo Família</h3>
+
+            <p>
+                2 pizzas grandes + 1 refrigerante 2L.
+            </p>
+
+            <span class="price">
+                R$ 89,90
+            </span>
+
+            <a class="btn btn-orange"
+               href="https://wa.me/?text=Olá!%20Quero%20o%20Combo%20Família."
+               target="_blank">
+                Pedir combo
+            </a>
+
+        </div>
+
+
+        <div class="combo">
+
+            <div class="emoji">🍕🍕🍰</div>
+
+            <h3>Combo Completo</h3>
+
+            <p>
+                2 pizzas grandes + sobremesa.
+            </p>
+
+            <span class="price">
+                R$ 99,90
+            </span>
+
+            <a class="btn btn-orange"
+               href="https://wa.me/?text=Olá!%20Quero%20o%20Combo%20Completo."
+               target="_blank">
+                Pedir combo
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="title">
+
+        <h2>
+            Por que pedir na <span>Bella Massa?</span>
+        </h2>
+
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info">
+
+            <div class="info-icon">🔥</div>
+
+            <h3>Feita na hora</h3>
+
+            <p>
+                Preparamos cada pedido com cuidado
+                para chegar quentinho.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-icon">🧀</div>
+
+            <h3>Ingredientes selecionados</h3>
+
+            <p>
+                Ingredientes escolhidos para garantir
+                muito sabor em cada pedaço.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-icon">🚴</div>
+
+            <h3>Entrega rápida</h3>
+
+            <p>
+                Receba sua pizza no conforto
+                da sua casa.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="sobre">
+
+    <div class="about">
+
+        <div class="title">
+
+            <h2>
+                Sobre a <span>Bella Massa</span>
+            </h2>
+
+        </div>
+
+        <p>
+            A Bella Massa nasceu com uma missão simples:
+            fazer pizzas deliciosas para reunir pessoas.
+            Nossa massa é preparada com carinho e nossos
+            ingredientes são escolhidos pensando sempre
+            na qualidade e no sabor.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contato">
+
+    <h2>
+        Deu <span>fome?</span> 🍕
+    </h2>
+
+    <p>
+        Faça seu pedido agora pelo WhatsApp.
+    </p>
+
+    <a class="btn btn-orange"
+       href="https://wa.me/?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20Bella%20Massa."
+       target="_blank">
+        Fazer meu pedido 📱
+    </a>
+
+</section>
+
+
+<footer>
+
+    © 2026 <span>Bella Massa</span> — Pizzaria
+
+    <br>
+
+    São Paulo — SP
+
+</footer>
+
+
+<a class="whatsapp"
+   href="https://wa.me/?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20Bella%20Massa."
+   target="_blank">
+    💬
+</a>
+```
+
+</body>
+</html>
