@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<meta name="description" content="Nexora Sites — sites modernos, rápidos e profissionais para empresas e empreendedores.">
+<meta name="theme-color" content="#050505">
+
+<title>Nexora Sites | Sites Profissionais</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #050505;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(5, 5, 5, .88);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid #1b1b1b;
+        z-index: 999;
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    .logo span {
+        color: #00ff88;
+    }
+
+    nav {
+        display: flex;
+        gap: 28px;
+    }
+
+    nav a {
+        color: #aaa;
+        font-size: 15px;
+        transition: .3s;
+    }
+
+    nav a:hover {
+        color: #00ff88;
+    }
+
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 130px 20px 80px;
+        background:
+            radial-gradient(circle at 50% 40%, #123d2b 0%, #07130e 22%, #050505 58%);
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 8px 17px;
+        border: 1px solid #00ff88;
+        border-radius: 50px;
+        color: #00ff88;
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 8vw, 88px);
+        line-height: 1.04;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+        color: #00ff88;
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin: auto;
+        color: #999;
+        font-size: 19px;
+    }
+
+    .buttons {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 25px;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: #00ff88;
+        color: #050505;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0,255,136,.25);
+    }
+
+    .btn-secondary {
+        border: 1px solid #333;
+        color: #ddd;
+    }
+
+    .btn-secondary:hover {
+        border-color: #00ff88;
+        color: #00ff88;
+    }
+
+    section {
+        padding: 110px 7%;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+        font-size: 42px;
+    }
+
+    .section-title span {
+        color: #00ff88;
+    }
+
+    .section-title p {
+        color: #888;
+        margin-top: 10px;
+    }
+
+    .cards,
+    .projects,
+    .prices,
+    .testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .card,
+    .project,
+    .price,
+    .testimonial {
+        background: #0d0d0d;
+        border: 1px solid #202020;
+        border-radius: 18px;
+        padding: 32px;
+        transition: .3s;
+    }
+
+    .card:hover,
+    .project:hover,
+    .price:hover,
+    .testimonial:hover {
+        transform: translateY(-7px);
+        border-color: #00ff88;
+    }
+
+    .icon {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    .card h3,
+    .project h3,
+    .price h3 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .card p,
+    .project p,
+    .testimonial p {
+        color: #888;
+    }
+
+    .project {
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: linear-gradient(145deg, #151515, #090909);
+    }
+
+    .project .emoji {
+        font-size: 55px;
+        margin-bottom: auto;
+    }
+
+    .price {
+        text-align: center;
+    }
+
+    .price.featured {
+        border: 2px solid #00ff88;
+        transform: scale(1.04);
+    }
+
+    .price.featured:hover {
+        transform: scale(1.04) translateY(-7px);
+    }
+
+    .value {
+        font-size: 40px;
+        font-weight: bold;
+        color: #00ff88;
+        margin: 20px 0;
+    }
+
+    .price p {
+        color: #999;
+        line-height: 2;
+        margin-bottom: 25px;
+    }
+
+    .stars {
+        color: #00ff88;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .testimonial strong {
+        display: block;
+        margin-top: 15px;
+    }
+
+    .faq {
+        max-width: 850px;
+        margin: auto;
+    }
+
+    details {
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        padding: 20px;
+        transition: .3s;
+    }
+
+    details[open] {
+        border-color: #00ff88;
+    }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    details p {
+        color: #999;
+        margin-top: 15px;
+    }
+
+    .contact {
+        text-align: center;
+        background:
+            radial-gradient(circle at center, #103d29 0%, #050505 58%);
+    }
+
+    .contact h2 {
+        font-size: clamp(35px, 6vw, 55px);
+        margin-bottom: 15px;
+    }
+
+    .contact p {
+        color: #999;
+        margin-bottom: 30px;
+    }
+
+    footer {
+        padding: 35px 7%;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #1b1b1b;
+    }
+
+    footer span {
+        color: #00ff88;
+    }
+
+    .whatsapp-float {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #00ff88;
+        color: #050505;
+        font-size: 27px;
+        box-shadow: 0 8px 25px rgba(0,255,136,.25);
+        z-index: 1000;
+        transition: .3s;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+    }
+
+    @media (max-width: 850px) {
+        nav {
+            display: none;
+        }
+
+        .cards,
+        .projects,
+        .prices,
+        .testimonials {
+            grid-template-columns: 1fr;
+        }
+
+        .price.featured,
+        .price.featured:hover {
+            transform: none;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+    <div class="logo">
+        Nexora<span>Sites</span> 🚀
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#precos">Preços</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="inicio">
+    <div>
+
+        <div class="badge">
+            🚀 Sites profissionais para o seu negócio
+        </div>
+
+        <h1>
+            Seu negócio merece um
+            <br>
+            <span>site incrível.</span>
+        </h1>
+
+        <p>
+            Criamos sites modernos, rápidos e responsivos
+            para empresas e empreendedores que querem
+            crescer na internet.
+        </p>
+
+        <div class="buttons">
+            <a class="btn btn-primary"
+               href="https://wa.me/5511992749561?text=Olá!%20Vi%20o%20site%20da%20Nexora%20e%20gostaria%20de%20fazer%20um%20orçamento."
+               target="_blank">
+                Quero meu site 🚀
+            </a>
+
+            <a class="btn btn-secondary" href="#projetos">
+                Ver projetos
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="servicos">
+
+    <div class="section-title">
+        <h2>
+            Por que escolher a <span>Nexora?</span>
+        </h2>
+
+        <p>
+            Soluções simples e profissionais para colocar seu negócio na internet.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Site Profissional</h3>
+            <p>
+                Design moderno para apresentar sua empresa
+                e transmitir confiança aos seus clientes.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>100% Responsivo</h3>
+            <p>
+                Seu site funcionando em computador,
+                celular e tablet.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Rápido e Leve</h3>
+            <p>
+                Sites desenvolvidos pensando em velocidade
+                e boa experiência para o visitante.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="projetos">
+
+    <div class="section-title">
+        <h2>
+            Projetos de <span>demonstração</span>
+        </h2>
+
+        <p>
+            Alguns exemplos dos tipos de sites que a Nexora pode desenvolver.
+        </p>
+    </div>
+
+    <div class="projects">
+
+        <div class="project">
+            <div class="emoji">🍔</div>
+            <h3>Restaurante</h3>
+            <p>
+                Site para apresentar cardápio,
+                localização e contato.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="emoji">💈</div>
+            <h3>Barbearia</h3>
+            <p>
+                Página profissional para divulgar
+                serviços e facilitar o contato.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="emoji">🎮</div>
+            <h3>Loja Gamer</h3>
+            <p>
+                Página moderna para divulgar
+                produtos e promoções.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="precos">
+
+    <div class="section-title">
+        <h2>
+            Planos <span>Nexora</span>
+        </h2>
+
+        <p>
+            Valores iniciais para projetos de demonstração.
+        </p>
+    </div>
+
+    <div class="prices">
+
+        <div class="price">
+
+            <h3>Básico</h3>
+
+            <div class="value">
+                R$ 150
+            </div>
+
+            <p>
+                1 página<br>
+                Design moderno<br>
+                Responsivo<br>
+                Botões de contato
+            </p>
+
+            <a class="btn btn-primary"
+               href="https://wa.me/5511992749561?text=Olá!%20Tenho%20interesse%20no%20plano%20Básico%20da%20Nexora."
+               target="_blank">
+                Quero esse
+            </a>
+
+        </div>
+
+
+        <div class="price featured">
+
+            <h3>Profissional</h3>
+
+            <div class="value">
+                R$ 300
+            </div>
+
+            <p>
+                Até 5 páginas<br>
+                Design personalizado<br>
+                Responsivo<br>
+                Formulário de contato
+            </p>
+
+            <a class="btn btn-primary"
+               href="https://wa.me/5511992749561?text=Olá!%20Tenho%20interesse%20no%20plano%20Profissional%20da%20Nexora."
+               target="_blank">
+                Mais escolhido
+            </a>
+
+        </div>
+
+
+        <div class="price">
+
+            <h3>Premium</h3>
+
+            <div class="value">
+                R$ 500
+            </div>
+
+            <p>
+                Site completo<br>
+                Design personalizado<br>
+                Animações<br>
+                Suporte inicial
+            </p>
+
+            <a class="btn btn-primary"
+               href="https://wa.me/5511992749561?text=Olá!%20Tenho%20interesse%20no%20plano%20Premium%20da%20Nexora."
+               target="_blank">
+                Quero esse
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section>
+
+    <div class="section-title">
+        <h2>
+            O que nossos <span>clientes dizem</span>
+        </h2>
+    </div>
+
+    <div class="testimonials">
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "A página ficou muito mais profissional
+                e ajudou a apresentar melhor meu negócio."
+            </p>
+            <strong>Cliente — Restaurante</strong>
+        </div>
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "O site ficou bonito, rápido e funcionando
+                muito bem no celular."
+            </p>
+            <strong>Cliente — Barbearia</strong>
+        </div>
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Gostei muito do resultado. Ficou exatamente
+                com a aparência que eu queria."
+            </p>
+            <strong>Cliente — Loja</strong>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="faq">
+
+    <div class="section-title">
+
+        <h2>
+            Perguntas <span>frequentes</span>
+        </h2>
+
+        <p>
+            Algumas dúvidas comuns antes de começar um projeto.
+        </p>
+
+    </div>
+
+    <div class="faq">
+
+        <details>
+            <summary>Quanto tempo demora para criar um site?</summary>
+
+            <p>
+                O prazo depende do tamanho e da quantidade
+                de páginas do projeto.
+            </p>
+        </details>
+
+        <details>
+            <summary>O site funciona no celular?</summary>
+
+            <p>
+                Sim. Os projetos são desenvolvidos para
+                computadores, celulares e tablets.
+            </p>
+        </details>
+
+        <details>
+            <summary>Posso pedir alterações?</summary>
+
+            <p>
+                Sim. As alterações são combinadas de acordo
+                com o projeto contratado.
+            </p>
+        </details>
+
+        <details>
+            <summary>Como faço para pedir um orçamento?</summary>
+
+            <p>
+                Clique em qualquer botão de WhatsApp
+                da página e envie sua ideia.
+            </p>
+        </details>
+
+    </div>
+</section>
+
+
+<section class="contact" id="contato">
+
+    <h2>
+        Vamos criar seu <span>site?</span>
+    </h2>
+
+    <p>
+        Conte sua ideia para a Nexora e vamos conversar sobre o projeto.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://wa.me/5511992749561?text=Olá!%20Quero%20fazer%20um%20site%20com%20a%20Nexora.%20Gostaria%20de%20saber%20mais."
+       target="_blank">
+        Falar no WhatsApp 📱
+    </a>
+
+</section>
+
+
+<footer>
+    © 2026 <span>Nexora Sites</span> — Todos os direitos reservados.
+</footer>
+
+
+<a class="whatsapp-float"
+   href="https://wa.me/5511992749561?text=Olá!%20Vi%20o%20site%20da%20Nexora%20e%20quero%20saber%20mais."
+   target="_blank"
+   aria-label="Falar com a Nexora pelo WhatsApp">
+    💬
+</a>
+```
+
+</body>
+</html>
